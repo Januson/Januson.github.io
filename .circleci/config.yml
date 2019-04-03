@@ -1,9 +1,9 @@
 version: 2
 jobs:
   deploy:
-#    branches:
-#      ignore:
-#        - gh-pages
+    #    branches:
+    #      ignore:
+    #        - gh-pages
     docker:
       - image: circleci/rust:latest
     environment:
@@ -30,26 +30,25 @@ jobs:
           name: Deploy Release to GitHub
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
-            git config --global user.email $USER_EMAIL
-            git config --global user.name $USER_NAME
+              git config --global user.email $USER_EMAIL
+              git config --global user.name $USER_NAME
 
-            git clone $CIRCLE_REPOSITORY_URL out
+              git clone $CIRCLE_REPOSITORY_URL out
 
-            cd out
-            git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-            git rm -rf .
-            cd ..
+              cd out
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cd ..
 
-            cp -a public/. out/.
+              cp -a public/. out/.
 
-            #              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
-            cd out
+              #              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+              cd out
 
-            git add -A
-            git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
 
-            git push origin $TARGET_BRANCH
-#            bash .circleci/setup-github.sh
+              git push origin $TARGET_BRANCH
             fi
 
 workflows:
