@@ -35,6 +35,7 @@ jobs:
 
               git clone $CIRCLE_REPOSITORY_URL out
 
+              git status
               cd out
               git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
               git rm -rf .
