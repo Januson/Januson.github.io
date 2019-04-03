@@ -1,22 +1,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>https://januson.github.io/blog/hello/</loc>
-            
-        </url>
-    
-        <url>
             <loc>https://januson.github.io/blog/</loc>
             
         </url>
     
         <url>
-            <loc>https://januson.github.io/</loc>
+            <loc>https://januson.github.io/blog/world/</loc>
             
         </url>
     
         <url>
-            <loc>https://januson.github.io/blog/world/</loc>
+            <loc>https://januson.github.io/blog/hello/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://januson.github.io/</loc>
             
         </url>
     
