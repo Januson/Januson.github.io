@@ -1,9 +1,9 @@
 version: 2
 jobs:
   deploy:
-    branches:
-      ignore:
-        - gh-pages
+#    branches:
+#      ignore:
+#        - gh-pages
     docker:
       - image: circleci/rust:latest
     environment:
