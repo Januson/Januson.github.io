@@ -57,3 +57,6 @@ workflows:
   build:
     jobs:
       - deploy
+        branches:
+          ignore:
+            - gh-pages
