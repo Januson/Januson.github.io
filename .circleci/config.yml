@@ -1,9 +1,9 @@
 version: 2
 jobs:
   deploy:
-    #    branches:
-    #      ignore:
-    #        - gh-pages
+    branches:
+      ignore:
+        - gh-pages
     docker:
       - image: circleci/rust:latest
     environment:
@@ -51,13 +51,3 @@ jobs:
 
               git push origin $TARGET_BRANCH
             fi
-
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      - deploy
-        filters:
-          branches:
-            ignore:
-              - gh-pages
