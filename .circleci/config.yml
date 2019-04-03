@@ -1,0 +1,59 @@
+version: 2
+jobs:
+  deploy:
+    branches:
+      ignore:
+        - gh-pages
+    docker:
+      - image: circleci/rust:latest
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+      - ZOLA: https://github.com/getzola/zola/releases/download/v0.6.0/zola-v0.6.0-x86_64-unknown-linux-gnu.tar.gz
+    steps:
+      - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
+      - install_zola:
+          name: Install Zola static site generator
+          command: curl -s -L $ZOLA | sudo tar xvzf - -C /usr/local/bin
+      - run:
+          name: Build site
+          command: zola build
+      - add_ssh_keys:
+          fingerprints:
+            - "0b:30:24:11:f4:f9:fc:a4:51:50:47:e8:41:16:a1:49"
+      - deploy:
+          name: Deploy Release to GitHub
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+            git config --global user.email $USER_EMAIL
+            git config --global user.name $USER_NAME
+
+            git clone $CIRCLE_REPOSITORY_URL out
+
+            cd out
+            git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+            git rm -rf .
+            cd ..
+
+            cp -a public/. out/.
+
+            #              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+            cd out
+
+            git add -A
+            git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+
+            git push origin $TARGET_BRANCH
+            bash .circleci/setup-github.sh
+            fi
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy
