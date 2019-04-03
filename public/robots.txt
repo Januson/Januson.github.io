@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://januson.github.io/sitemap.xml
