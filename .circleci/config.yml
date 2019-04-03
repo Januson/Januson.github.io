@@ -42,7 +42,8 @@ jobs:
 
               cp -a public/. out/.
 
-              #              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+
               cd out
 
               git add -A
