@@ -3,13 +3,13 @@ jobs:
   build:
     branches:
       ignore:
-        - gh-pages
+        - master
     docker:
       - image: circleci/rust:latest
     working_directory: ~/repo
     environment:
-      - SOURCE_BRANCH: master
-      - TARGET_BRANCH: gh-pages
+      - SOURCE_BRANCH: develop
+      - TARGET_BRANCH: master
       - ZOLA: https://github.com/getzola/zola/releases/download/v0.6.0/zola-v0.6.0-x86_64-unknown-linux-gnu.tar.gz
     steps:
       - checkout
