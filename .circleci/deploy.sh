@@ -1,17 +1,27 @@
 #!/usr/bin/env bash
 
-git config user.name "$USER_NAME"
-git config user.email "$USER_EMAIL"
+git config --global user.email $USER_EMAIL
+git config --global user.name $USER_NAME
 
-git checkout master
-git pull origin master
+git clone $CIRCLE_REPOSITORY_URL out
 
-find . -maxdepth 1 ! -name '_site' ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
-mv _site/* .
-rm -R _site/
+cd out
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+git rm -rf .
+cd ..
+
+zola build
+
+cp -a public/. out/.
+
+mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+
+cd out
 
 git add -fA
-git commit --allow-empty -m "$(git log develop -1 --pretty=%B)"
-git push origin gh-pages
+git status
+git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+
+git push origin $TARGET_BRANCH
 
 echo "deployed successfully"
