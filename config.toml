@@ -6,6 +6,7 @@ theme = "even"
 title = "Januson"
 
 taxonomies = [
+    {name = "categories", rss = true},
     {name = "tags", rss = true},
 ]
 
