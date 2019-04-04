@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/Januson/januson.github.io.svg?style=svg)](https://circleci.com/gh/Januson/januson.github.io)
+[![CircleCI](https://circleci.com/gh/Januson/Januson.github.io/tree/master.svg?style=svg)](https://circleci.com/gh/Januson/Januson.github.io/tree/master)
 
 # My personal website
 
