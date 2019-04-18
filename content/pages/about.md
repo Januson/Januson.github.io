@@ -4,4 +4,4 @@ path = "about"
 template = "about.html"
 +++
 
-This site provides a demo
+This site provides a demo.

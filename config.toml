@@ -2,12 +2,15 @@ base_url = "https://januson.github.io"
 build_search_index = true
 compile_sass = true
 highlight_code = true
-theme = "even"
 title = "Januson"
 
 taxonomies = [
-    {name = "categories", rss = true},
     {name = "tags", rss = true},
 ]
 
 [extra]
+menu = [
+    {url = "$BASE_URL", name = "Blog"},
+    {url = "$BASE_URL/tags", name = "Tags"},
+    {url = "$BASE_URL/about", name = "About"},
+]
