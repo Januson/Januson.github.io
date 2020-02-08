@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/rust:latest
     environment:
-      - ZOLA: https://github.com/getzola/zola/releases/download/v0.6.0/zola-v0.6.0-x86_64-unknown-linux-gnu.tar.gz
+      - ZOLA: https://github.com/getzola/zola/releases/download/v0.9.0/zola-v0.9.0-x86_64-unknown-linux-gnu.tar.gz
     steps:
       - checkout
       - run:
@@ -29,16 +29,17 @@ jobs:
   deploy:
     docker:
       - image: circleci/rust:latest
+    environment:
+      - TARGET_BRANCH: master
     working_directory: ~/checkout
     steps:
       - checkout
       - run:
+          name: Setup Git user
+          command: bash ./.circleci/setup_user.sh $USER_EMAIL $USER_NAME
+      - run:
           name: Prepare release branch
-          command: |
-            git branch -D master
-            git checkout --orphan master
-            git rm -rf .
-            git clean -fxd
+          command: bash ./.circleci/nuke_branch.sh $TARGET_BRANCH
       - attach_workspace:
           at: .
       - add_ssh_keys:
@@ -46,15 +47,7 @@ jobs:
             - "0b:30:24:11:f4:f9:fc:a4:51:50:47:e8:41:16:a1:49"
       - deploy:
           name: Deploy release
-          command: |
-            git config --global user.email $USER_EMAIL
-            git config --global user.name $USER_NAME
-            echo "Commit and push..."
-            git add -fA
-            git status
-            git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
-            git push origin master --force
-            echo "Deployed successfully!"
+          command: bash ./.circleci/deploy.sh $TARGET_BRANCH $CIRCLE_SHA1
 
 workflows:
   version: 2

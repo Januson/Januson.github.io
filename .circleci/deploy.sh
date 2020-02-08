@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
 
-git config --global user.email $USER_EMAIL
-git config --global user.name $USER_NAME
+set -o errexit
+set -o nounset
+set -o pipefail
 
-git clone $CIRCLE_REPOSITORY_URL out
+if [[ $# -lt 2 ]]; then
+    echo "Error: Not enought arguments! $# out of 2 required..."
+    exit 1
+fi
 
-cd out
-git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-git rm -rf .
-cd ..
+TARGET_BRANCH=$1
+CIRCLE_SHA1=$2
 
-zola build
-
-cp -a public/. out/.
-
-mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
-
-cd out
-
+echo "Commit and push..."
 git add -fA
 git status
 git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+git push origin ${TARGET_BRANCH} --force
 
-git push origin $TARGET_BRANCH
+echo "Deployed successfully to ${TARGET_BRANCH}!"
 
-echo "deployed successfully"
