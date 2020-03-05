@@ -11,17 +11,29 @@ main {
   }
 
   .read-more a {
-    font-size: 1.1rem;
     color: $main-colour;
+    font-family: $decoration-font-family;
+    font-size: 1.1rem;
 
-    &:hover {
-      text-decoration: underline;
-    }
+    @include underline-from-center;
+    //&:hover {
+    //  //text-decoration: underline;
+    //  text-decoration: none;
+    //}
   }
 
   .about,
   .post {
     padding: 1.5rem 0;
+
+    .post__title {
+      font-family: $decoration-font-family;
+
+      a {
+        color: #34495e;
+        @include underline-from-center;
+      }
+    }
 
     h2, h3, h4, h5, h6 {
       font-weight: 400;
@@ -36,11 +48,11 @@ main {
 
     p > a {
       color: $main-colour;
-      word-break: break-all;
+      @include underline-from-center;
 
-      &:hover {
-        border-bottom: 1px solid $main-colour;
-      }
+      //&:hover {
+      //  border-bottom: 1px solid $main-colour;
+      //}
     }
 
     blockquote {
@@ -75,6 +87,32 @@ main {
 
       tr:hover {
         background-color: $secondary-colour;
+      }
+    }
+
+    .footnote-definition {
+      padding-left: 40px;
+
+      &:first-of-type {
+        border-top: 2px dashed $main-colour;
+        margin-top: 1rem;
+        padding-top: 1rem;
+      }
+
+      sup {
+        &.footnote-definition-label {
+          font-size: 100%;
+          position: unset;
+          top: unset;
+
+          &::after {
+            content: '.';
+          }
+        }
+      }
+
+      p {
+        display: inline;
       }
     }
 
@@ -118,11 +156,11 @@ main {
     border-top: 1px solid #e6e6e6;
 
     &:after {
-        clear: both;
-        height: 0;
-        width: 100%;
-        content: '';
-        display: block;
+      clear: both;
+      height: 0;
+      width: 100%;
+      content: '';
+      display: block;
     }
   }
 
@@ -145,8 +183,13 @@ main {
   }
 
   .pagination {
-    margin: 2rem 0;
     clear: both;
+    font-family: $decoration-font-family;
+    margin: 2rem 0;
+
+    a {
+      color: #34495e;
+    }
   }
 }
 

@@ -30,6 +30,14 @@ body {
 a {
   color: $main-colour;
   text-decoration: none;
+  @include underline-from-center;
+}
+
+sup {
+//  color: $main-colour;
+//  text-decoration: none;
+  line-height: 1;
+//  vertical-align: top;
 }
 
 img {

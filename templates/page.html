@@ -1,6 +1,8 @@
 {% extends "index.html" %}
 {% import "post_macros.html" as post_macros %}
 
+{% block title %}{{config.title}} - {{page.title}}{% endblock title %}
+
 {% block content %}
 
 {% if page.toc %}
@@ -32,6 +34,8 @@
 <article class="post">
     {{ post_macros::title(page=page) }}
     <div class="post-content">
+        <br />
+        {{ page.extra.summary }}
         {{ page.content | safe }}
     </div>
 

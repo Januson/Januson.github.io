@@ -1,8 +1,13 @@
 base_url = "https://januson.github.io"
+title = ""
+description = "Ondrej Janus blog"
+default_language = "en"
+
+paginate_by = 10
 build_search_index = true
 compile_sass = true
 highlight_code = true
-title = "Januson"
+highlight_theme = "cheerfully-light"
 
 taxonomies = [
     {name = "tags", rss = true},
