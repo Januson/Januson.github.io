@@ -30,7 +30,7 @@ jobs:
     docker:
       - image: circleci/rust:latest
     environment:
-      - TARGET_BRANCH: master
+      - TARGET_BRANCH: gh-pages
     working_directory: ~/checkout
     steps:
       - checkout
@@ -57,11 +57,10 @@ workflows:
           filters:
             branches:
               ignore:
-                - master
                 - gh-pages
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: develop
+              only: master

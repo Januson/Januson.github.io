@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 if [[ $# -lt 2 ]]; then
-    echo "Error: Not enought arguments! $# out of 2 required..."
+    echo "Error: Not enough arguments! $# out of 2 required..."
     exit 1
 fi
 
@@ -15,4 +15,3 @@ USER_NAME=$2
 echo "Setup git user..."
 git config --global user.email ${USER_EMAIL}
 git config --global user.name ${USER_NAME}
-
