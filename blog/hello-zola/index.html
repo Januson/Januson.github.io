@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> - Hello, Zola!</title>
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+    
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;januson.github.io&#x2F;site.css">
+    
+    
+
+    
+    
+</head>
+
+<body>
+<div class="container">
+    <div id="mobile-navbar" class="mobile-navbar">
+        <div class="mobile-header-logo">
+            <a href="/" class="logo"></a>
+        </div>
+        <div class="mobile-navbar-icon icon-out">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+        <ul class="mobile-menu-list">
+            
+            <li class="mobile-menu-item">
+                <a href="https:&#x2F;&#x2F;januson.github.io">
+                Blog
+                </a>
+            </li>
+            
+            <li class="mobile-menu-item">
+                <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;tags">
+                Tags
+                </a>
+            </li>
+            
+            <li class="mobile-menu-item">
+                <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;about">
+                About
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+
+    <header id="header">
+        <div class="logo"><a href="https:&#x2F;&#x2F;januson.github.io"></a></div>
+        <nav class="menu">
+            <ul>
+                
+                <li>
+                    <a href="https:&#x2F;&#x2F;januson.github.io">
+                    Blog
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;tags">
+                    Tags
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;about">
+                    About
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content" id="mobile-panel">
+            
+
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://januson.github.io/blog/hello-zola/#ssgs" class="toc-link">What are SSGs?</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://januson.github.io/blog/hello-zola/#getting-started" class="toc-link">Getting started!</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://januson.github.io/blog/hello-zola/#installation" class="toc-link">Installation</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://januson.github.io/blog/hello-zola/#new-project" class="toc-link">New Project</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://januson.github.io/blog/hello-zola/#templates" class="toc-link">Templates</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://januson.github.io/blog/hello-zola/#content" class="toc-link">Content</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://januson.github.io/blog/hello-zola/#serving-the-content" class="toc-link">Serving the content</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://januson.github.io/blog/hello-zola/#conclusion" class="toc-link">Conclusion</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+    <h1 class="post__title">
+        <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;blog&#x2F;hello-zola&#x2F;">Hello, Zola!</a>
+    </h1>
+    <div class="post__meta">
+        <span class="post__time">2020-03-05</span>
+        
+    </div>
+</header>
+
+    <div class="post-content">
+        <br />
+        There are many ways to make a website. From CMS platforms such as WordPress and Joomla to plain old static files. Static site generators are a nice middle ground  between the two.
+        <h2 id="ssgs">What are SSGs?</h2>
+<p>In a nutshell static site generator takes your content, usually in the form of markdown files, applies it to a template and generates an HTML based static site.</p>
+<p>Why would one decided to use SSG?</p>
+<ul>
+<li><strong>Hosting</strong>: There is no backend or dynamic content. The whole site is just a bunch of static files and as such can be hosted directly on any <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a>.</li>
+<li><strong>Security</strong>: There’s nothing dynamic that can be exploited. No vulnerable login screen just plain-text and static files.</li>
+<li><strong>Simplicity</strong>: Everything is plain text. This means that we can really easily work with all our favorite text editing tools.</li>
+<li><strong>Version Control</strong>: No trouble with database backups and dependencies. The whole site is version controlled and easily managed.</li>
+</ul>
+<p>There are many <a href="https://www.staticgen.com/">options</a> to choose from. The following are some of the popular static site generators.</p>
+<ul>
+<li><a href="https://nextjs.org/">Next.js</a> (JS)</li>
+<li><a href="https://gohugo.io/">Hugo</a> (Go)</li>
+<li><a href="https://jekyllrb.com/">Jekyll</a> (Ruby)</li>
+<li><a href="https://blog.getpelican.com/">Pelican</a> (Python)</li>
+<li><a href="https://www.getzola.org/">Zola</a> (Rust)</li>
+</ul>
+<p>What eventually caught my attention was <a href="https://www.getzola.org/">Zola</a> (Formally Gutenberg<sup class="footnote-reference"><a href="#1">1</a></sup>) a <a href="https://www.rust-lang.org/">Rust</a> based SSG.</p>
+<ul>
+<li>It uses <a href="https://tera.netlify.com/">Tera</a>. Templating engine inspired by <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja2</a> and <a href="https://docs.djangoproject.com/en/3.0/topics/templates/">Django templates</a>.</li>
+<li>The content is written in <a href="https://commonmark.org/">CommonMark</a>, a strongly defined, highly compatible specification of Markdown.</li>
+<li>It has <a href="https://www.getzola.org/documentation/content/sass/">Sass</a> built in, which removes a lot of the need for a frontend build pipeline.</li>
+<li>Since it is written in Rust if I run into any issues, I could contribute rather than just complaining!</li>
+</ul>
+<h2 id="getting-started">Getting started!</h2>
+<h3 id="installation">Installation</h3>
+<p><a href="https://www.getzola.org/documentation/getting-started/installation/">Installation</a> is dead simple. Zola provides pre-built binaries in the repositories for the following:</p>
+<ul>
+<li>Arch Linux</li>
+<li>macOS</li>
+<li>Fedora</li>
+<li>FreeBSD</li>
+<li>Snapcraft</li>
+<li>Windows</li>
+</ul>
+<p>For instance, to install Zola on Fedora, all you have to do is grab the package. </p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#5597d6;">dnf</span><span style="color:#1f1f1f;"> install zola
+</span></code></pre>
+<p>Zola also provides pre-built binaries for MacOS, Linux and Windows on the <a href="https://github.com/getzola/zola/releases">GitHub release page</a>. There is no need to install Rust or anything. Just install the package and you are ready to roll. Unless you want to build it from the source that is.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#5597d6;">ZOLA</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">https://github.com/getzola/zola/releases/download/v0.9.0/zola-v0.9.0-x86_64-unknown-linux-gnu.tar.gz
+</span><span style="color:#5597d6;">curl -s -L </span><span style="color:#1f1f1f;">${</span><span style="color:#5597d6;">ZOLA</span><span style="color:#1f1f1f;">} </span><span style="color:#72ab00;">| </span><span style="color:#5597d6;">sudo</span><span style="color:#1f1f1f;"> tar xvzf -</span><span style="color:#5597d6;"> -C</span><span style="color:#1f1f1f;"> /usr/local/bin
+</span></code></pre>
+<p>To check the installation you can try to print the version.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#5597d6;">zola -V
+</span></code></pre><h2 id="new-project">New Project</h2>
+<p>Now that we have Zola installed it is time to create something. To do this we will use <code>zola init</code>.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#5597d6;">zola</span><span style="color:#1f1f1f;"> init hello-zola
+</span><span style="color:#b39f04;">cd</span><span style="color:#1f1f1f;"> hello-zola
+</span></code></pre>
+<p><a href="https://www.getzola.org/documentation/getting-started/cli-usage/#init">Init</a> creates the project directory structure after asking a couple of configuration questions. All changes made by the init can be easily changed by modifying the file <a href="https://www.getzola.org/documentation/getting-started/configuration/">config.toml</a>. The created structure looks like the following:</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#1f1f1f;">.
+├── content
+├── sass
+├── static
+├── templates
+├── themes
+└── config.toml
+</span></code></pre>
+<p>For now let's focus on <code>content</code> which holds <a href="https://www.getzola.org/documentation/content/section/">sections</a> and <a href="https://www.getzola.org/documentation/content/page/">pages</a> of the website and <code>templates</code> where Zola looks for your <a href="https://www.getzola.org/documentation/templates/overview/">template</a> files. </p>
+<h3 id="templates">Templates</h3>
+<p>By default, Zola will look for three templates:</p>
+<ul>
+<li><code>index.html</code> is applied to the site homepage</li>
+<li><code>section.html</code> is applied to all sections (any HTML page generated by creating a directory within your content directory)</li>
+<li><code>page.html</code> is applied to all pages (any HTML page generated by creating a .md file within your content directory).</li>
+</ul>
+<p>To start we need to create a template for the page we are about to generate. Let's create a template for our page: <code>templates/page.html</code>:</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#494949;">&lt;!</span><span style="color:#72ab00;">DOCTYPE </span><span style="color:#b3933a;">html</span><span style="color:#494949;">&gt;
+</span><span style="color:#6486ab;">&lt;html&gt;
+&lt;body&gt;
+    &lt;h2&gt;</span><span style="color:#1f1f1f;">{{ page.title}}</span><span style="color:#6486ab;">&lt;/h2&gt;
+</span><span style="color:#1f1f1f;">    {{ page.content }}
+</span><span style="color:#6486ab;">&lt;/body&gt;
+&lt;/html&gt;
+</span></code></pre><h3 id="content">Content</h3>
+<p>Zola uses the folder structure inside of the <code>content</code> directory to determine the site structure. Each folder in the content directory represents a section that contains pages (Your .md files).</p>
+<p>Now lets create a home page: <code>contents/home.md</code>.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#1f1f1f;">+++
+title = &quot;Hello, Zola!&quot;
++++
+
+Some awesome content!
+</span></code></pre>
+<p>Awesome. We've got a page and some great content. The last thing we need is to tell the root section to redirect to our new page. For this we need to create <code>contents/_index.md</code> file. This file is used to store both metadata and content of the section itself and is not considered a page. There we can specify the redirect.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#1f1f1f;">+++
+redirect_to = &quot;/home&quot;
++++
+</span></code></pre>
+<p>With this change we are done with the content. let's try it out!</p>
+<h2 id="serving-the-content">Serving the content</h2>
+<p>To test if the content works you can try <code>zola build</code> command or <code>zola serve</code> if you want to immediately run the built site.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#5597d6;">zola</span><span style="color:#1f1f1f;"> serve
+</span></code></pre>
+<p>This will build and serve the site using a local server. It uses '127.0.0.1:1111' by default but can be customized. You can also specify the interface/port combination to use if you want something different than the default values.</p>
+<pre style="background-color:#f5f5f5;">
+<code><span style="color:#5597d6;">zola</span><span style="color:#1f1f1f;"> serve</span><span style="color:#5597d6;"> --interface</span><span style="color:#1f1f1f;"> 0.0.0.0</span><span style="color:#5597d6;"> --port</span><span style="color:#1f1f1f;"> 2000</span><span style="color:#5597d6;"> --output-dir</span><span style="color:#1f1f1f;"> www/public
+</span></code></pre><h2 id="conclusion">Conclusion</h2>
+<p>That's all that is needed to get started. Of course Zola has much more to offer. Just check the official documentation and happy building. </p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>It was renamed to avoid confusion with the <a href="https://wordpress.org/gutenberg/">Wordpress editor</a>. <a href="https://januson.github.io/blog/hello-zola/#ssgs">↩</a></p>
+</div>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+        <div class="post-tags">
+            
+            <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;tags&#x2F;ssg&#x2F;">#ssg</a>
+            
+            <a href="https:&#x2F;&#x2F;januson.github.io&#x2F;tags&#x2F;zola&#x2F;">#zola</a>
+            
+        </div>
+        
+        
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+    </main>
+
+    
+    <footer id="footer">
+        <p>© 2018 - 2020 Ondřej Januš</p>
+        <p>Powered by <a href="https://www.getzola.org/">Zola</a></p>
+    </footer>
+    
+</div>
+
+
+<script type="text/javascript" src="https:&#x2F;&#x2F;januson.github.io&#x2F;even.js" ></script>
+
+</body>
+
+</html>
